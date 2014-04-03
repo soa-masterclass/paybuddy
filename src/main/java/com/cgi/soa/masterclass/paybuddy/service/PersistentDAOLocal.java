@@ -1,19 +1,19 @@
 package com.cgi.soa.masterclass.paybuddy.service;
 
-import java.util.Collection;
+import java.util.List;
 
 import javax.ejb.Local;
 
-import com.cgi.soa.masterclass.paybuddy.model.User;
+import com.cgi.soa.masterclass.paybuddy.model.UserEntity;
 
 @Local
 public interface PersistentDAOLocal {
-	public void createUser(User user);
+	public void createUser(UserEntity user);
 	
-	public void deleteUser(User user);
+	public void deleteUser(UserEntity user);
 	
-	public Collection<User> getUsers();
+	public List<UserEntity> getUsers();
 	
-	public User getUser(int Id);
+	public UserEntity getUser(int Id);
 
 }

@@ -6,13 +6,14 @@ import java.util.Collection;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 @Entity
-public class User implements Serializable {
+public class UserEntity implements Serializable {
 	
 	/**
 	 * 
@@ -21,9 +22,10 @@ public class User implements Serializable {
 	@Id 
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int Id;
-	@OneToMany(cascade= CascadeType.ALL,mappedBy="user")
+	@OneToMany(cascade= CascadeType.ALL,mappedBy="user", fetch=FetchType.LAZY)
 	private Collection<Deposit> deposits;
-	@OneToMany(cascade= CascadeType.ALL,mappedBy="user")
+	
+	@OneToMany(cascade= CascadeType.ALL,mappedBy="user", fetch=FetchType.LAZY)
 	private Collection<Payment> payments;
 	@Column
 	private String email;
@@ -87,6 +89,18 @@ public class User implements Serializable {
 	}
 	public void setBalance(float balance) {
 		this.balance = balance;
+	}
+	public Collection<Deposit> getDeposits() {
+		return deposits;
+	}
+	public void setDeposits(Collection<Deposit> deposits) {
+		this.deposits = deposits;
+	}
+	public Collection<Payment> getPayments() {
+		return payments;
+	}
+	public void setPayments(Collection<Payment> payments) {
+		this.payments = payments;
 	}
 	@Override
 	public String toString() {

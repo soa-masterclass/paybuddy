@@ -9,17 +9,17 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@Entity
+//@Entity
 public class Clearing implements Serializable {
-	private static final long serialVersionUID = 1L;
-	@Id 
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int Id;
-	@Column
-	private Collection<User> user;
-	@Column
-	private String purpose;
-	@Column
-	private float amount;
+//	private static final long serialVersionUID = 1L;
+//	@Id 
+//	@GeneratedValue(strategy=GenerationType.IDENTITY)
+//	private int Id;
+//	@Column
+//	private Collection<User> user;
+//	@Column
+//	private String purpose;
+//	@Column
+//	private float amount;
 
 }

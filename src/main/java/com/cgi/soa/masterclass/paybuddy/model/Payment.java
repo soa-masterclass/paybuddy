@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -19,9 +20,9 @@ public class Payment implements Serializable {
 	
 	@Column
 	private String email;
-	@ManyToOne(optional=false)
-	@JoinColumn(name="user",referencedColumnName="payments")
-	private User user;
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn
+	private UserEntity user;
 	public int getId() {
 		return Id;
 	}
@@ -36,10 +37,10 @@ public class Payment implements Serializable {
 	}
 	
 	
-	public User getUser() {
+	public UserEntity getUser() {
 		return user;
 	}
-	public void setUser(User user) {
+	public void setUser(UserEntity user) {
 		this.user = user;
 	}
 	public String getPurpose() {

@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -20,9 +21,11 @@ public class Deposit implements Serializable{
 	private String purpose;
 	@Column
 	private float amount;
-	@ManyToOne(optional=false)
-	@JoinColumn(name="user",referencedColumnName="deposits")
-	private User user;
+	
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn
+	private UserEntity user;
+	
 	public int getId() {
 		return Id;
 	}
@@ -41,10 +44,10 @@ public class Deposit implements Serializable{
 	public void setAmount(float amount) {
 		this.amount = amount;
 	}
-	public User getUser() {
+	public UserEntity getUser() {
 		return user;
 	}
-	public void setUser(User user) {
+	public void setUser(UserEntity user) {
 		this.user = user;
 	}
 

@@ -1,19 +1,17 @@
 package com.cgi.soa.masterclass.paybuddy.service;
 
-import java.util.Collection;
+import java.util.List;
 
-import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import com.cgi.soa.masterclass.paybuddy.model.User;
+import com.cgi.soa.masterclass.paybuddy.model.UserEntity;
 
 /**
  * Session Bean implementation class PersistentDAO
  */
 @Stateless
-@LocalBean
 public class PersistentDAO implements PersistentDAOLocal {
 
     /**
@@ -27,26 +25,26 @@ public class PersistentDAO implements PersistentDAOLocal {
     }
 
 	@Override
-	public void createUser(User user) {
-		em.getTransaction().begin();
+	public void createUser(UserEntity user) {
+		
 		em.persist(user);
 		
 	}
 
 	@Override
-	public void deleteUser(User user) {
+	public void deleteUser(UserEntity user) {
 		em.remove(user);
 		
 	}
 
 	@Override
-	public Collection<User> getUsers() {
+	public List<UserEntity> getUsers() {
 		//em.find
-		return null;
+		return em.createQuery("SELECT userent FROM "+ UserEntity.class.getName()+" userent ", UserEntity.class).getResultList();
 	}
 
 	@Override
-	public User getUser(int Id) {
+	public UserEntity getUser(int Id) {
 		
 		return null;
 	}
