@@ -10,6 +10,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -22,11 +23,10 @@ public class UserEntity implements Serializable {
 	@Id 
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int Id;
-	@OneToMany(cascade= CascadeType.ALL,mappedBy="user", fetch=FetchType.LAZY)
-	private Collection<Deposit> deposits;
+	@JoinColumn
+	//@OneToMany(cascade= CascadeType.ALL,mappedBy="users", fetch=FetchType.LAZY)
+	private Collection<Transaction> transactions;
 	
-	@OneToMany(cascade= CascadeType.ALL,mappedBy="user", fetch=FetchType.LAZY)
-	private Collection<Payment> payments;
 	@Column
 	private String email;
 	@Column
@@ -91,18 +91,7 @@ public class UserEntity implements Serializable {
 	public void setBalance(float balance) {
 		this.balance = balance;
 	}
-	public Collection<Deposit> getDeposits() {
-		return deposits;
-	}
-	public void setDeposits(Collection<Deposit> deposits) {
-		this.deposits = deposits;
-	}
-	public Collection<Payment> getPayments() {
-		return payments;
-	}
-	public void setPayments(Collection<Payment> payments) {
-		this.payments = payments;
-	}
+
 	@Override
 	public String toString() {
 		return "User [firstname=" + firstname + ", lastname=" + lastname + "]";
