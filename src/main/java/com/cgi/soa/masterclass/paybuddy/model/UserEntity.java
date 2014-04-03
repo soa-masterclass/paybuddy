@@ -36,7 +36,7 @@ public class UserEntity implements Serializable {
 	@Column
 	private int accnumber;
 	@Column
-	private String accfistname;
+	private String accfirstname;
 	@Column
 	private String acclastname;
 	@Column
@@ -72,11 +72,12 @@ public class UserEntity implements Serializable {
 	public void setAccnumber(int accnumber) {
 		this.accnumber = accnumber;
 	}
-	public String getAccfistname() {
-		return accfistname;
+	
+	public String getAccfirstname() {
+		return accfirstname;
 	}
-	public void setAccfistname(String accfistname) {
-		this.accfistname = accfistname;
+	public void setAccfirstname(String accfirstname) {
+		this.accfirstname = accfirstname;
 	}
 	public String getAcclastname() {
 		return acclastname;

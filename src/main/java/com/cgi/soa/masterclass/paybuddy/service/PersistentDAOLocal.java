@@ -15,5 +15,8 @@ public interface PersistentDAOLocal {
 	public List<UserEntity> getUsers();
 	
 	public UserEntity getUser(int Id);
+	
+	
+	
 
 }
