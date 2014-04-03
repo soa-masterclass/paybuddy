@@ -84,7 +84,8 @@
 				<label for="form:accountNumber">Account Number</label>
 				<input type="text" class="form-control" jsf:id="accountNumber"
 					required="required" jsf:required="true" jsf:value="#{userViewController.user.accnumber}"
-					placeholder="Enter Account Number" />
+					placeholder="Enter Account Number" jsf:validator="bankAccountValidator"/>
+					 
 			</div>
 			<div class="row">
 				<div class="col-md-6">
@@ -93,6 +94,7 @@
 						<input type="text" class="form-control"
 							jsf:id="accountFirstName" required="required" jsf:required="true" jsf:value="#{userViewController.user.accfirstname}"
 							placeholder="Enter Account First name" />
+							
 					</div>
 				</div>
 				<div class="col-md-6">

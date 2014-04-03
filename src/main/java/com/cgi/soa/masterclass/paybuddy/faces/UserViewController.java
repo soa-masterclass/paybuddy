@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import com.cgi.soa.masterclass.paybuddy.model.UserEntity;
+import com.cgi.soa.masterclass.paybuddy.service.BankWS;
 import com.cgi.soa.masterclass.paybuddy.service.PersistentDAOLocal;
 
 /**
@@ -22,6 +23,9 @@ public class UserViewController {
      */
 	@Inject
 	private PersistentDAOLocal manager;
+	
+	@Inject
+	private BankWS service;
 	
 	private UserEntity user;
 	
@@ -43,6 +47,7 @@ public class UserViewController {
     
 	
 	public String createUser(){
+
 		manager.createUser(user);
 		return "/users/index.html?faces-redirect=true";
 		
