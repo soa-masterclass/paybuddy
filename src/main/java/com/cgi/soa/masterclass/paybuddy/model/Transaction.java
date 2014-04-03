@@ -12,11 +12,13 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 
 @Entity
+@Table(name="TransactionTable")
 public class Transaction {
 	private static final long serialVersionUID = 1L;
 	@Id 
