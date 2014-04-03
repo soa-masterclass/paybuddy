@@ -14,6 +14,10 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+<<<<<<< HEAD
+=======
+import javax.xml.registry.infomodel.User;
+>>>>>>> ea28dc3ff520072313e380c6215aa380a26f003d
 
 @Entity
 public class Transaction {
@@ -33,6 +37,7 @@ public class Transaction {
 	private UserEntity sender;
 	@Column
 	private UserEntity recipient;
+
 	@Temporal(TemporalType.DATE)
 	@Column
 	private Date transDate;
