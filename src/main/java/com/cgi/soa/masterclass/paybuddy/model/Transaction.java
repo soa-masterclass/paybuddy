@@ -23,16 +23,16 @@ public class Transaction {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int Id;
 	
+	
+	@OneToOne(cascade=CascadeType.ALL,fetch=FetchType.LAZY, mappedBy="transaction")
+	private Fee fee;
+
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn
-	private UserEntity user;
-	
-	@OneToOne(cascade=CascadeType.ALL,fetch=FetchType.LAZY)
-	@JoinColumn
-	private Fee fee;
-	@Column
 	private UserEntity sender;
-	@Column
+
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn
 	private UserEntity recipient;
 
 	@Temporal(TemporalType.DATE)
@@ -48,12 +48,7 @@ public class Transaction {
 	public void setId(int id) {
 		Id = id;
 	}
-	public UserEntity getUser() {
-		return user;
-	}
-	public void setUser(UserEntity user) {
-		this.user = user;
-	}
+
 	public Fee getFee() {
 		return fee;
 	}

@@ -24,7 +24,7 @@ public class UserEntity implements Serializable {
 	private int Id;
 	
 	
-	@OneToMany(cascade=CascadeType.ALL, mappedBy="user", fetch=FetchType.LAZY)
+	@OneToMany(cascade=CascadeType.ALL, mappedBy="sender", fetch=FetchType.LAZY)
 	private Collection<Transaction> transactions;
 	
 	@Column
