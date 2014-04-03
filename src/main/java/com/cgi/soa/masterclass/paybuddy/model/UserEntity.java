@@ -10,7 +10,6 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -23,8 +22,9 @@ public class UserEntity implements Serializable {
 	@Id 
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int Id;
-	@JoinColumn
-	//@OneToMany(cascade= CascadeType.ALL,mappedBy="users", fetch=FetchType.LAZY)
+	
+	
+	@OneToMany(cascade=CascadeType.ALL, mappedBy="user", fetch=FetchType.LAZY)
 	private Collection<Transaction> transactions;
 	
 	@Column
