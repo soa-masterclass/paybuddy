@@ -6,6 +6,7 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import com.cgi.soa.masterclass.paybuddy.model.Transaction;
 import com.cgi.soa.masterclass.paybuddy.model.UserEntity;
 
 /**
@@ -44,9 +45,20 @@ public class PersistentDAO implements PersistentDAOLocal {
 	}
 
 	@Override
-	public UserEntity getUser(int Id) {
+	public UserEntity getUser(int id) {
 		
-		return null;
+		return em.find(UserEntity.class, id);
 	}
+
+	
+
+	@Override
+	public void MakeTransaction(Transaction Transaction) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
+	
 
 }

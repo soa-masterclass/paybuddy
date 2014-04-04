@@ -75,6 +75,7 @@ body {
 					<th>Account Firstname</th>
 					<th>Account Lastname</th>
 					<th align="right">Balance</th>
+					<th align="right">Transactions</th>
 					<th></th>
 				</tr>
 			</thead>
@@ -89,6 +90,8 @@ body {
 						<td>#{user.accnumber}</td>
 						<td>#{user.accfirstname}</td>
 						<td>#{user.acclastname}</td>
+						<td> </td>
+						<td><a jsf:outcome="/transactions/index.xhtml?userId=#{user.id}"> Make Transactions</a></td>
 					</tr>
 
 				</ui:repeat>

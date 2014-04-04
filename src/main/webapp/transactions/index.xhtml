@@ -31,6 +31,10 @@
         <!--[if lt IE 7]>
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->
+        
+     <f:metadata>
+<f:viewParam name="userId" value="#{userViewController.user}" required="true" converter="UserIdConverter" />	
+</f:metadata>
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
@@ -52,7 +56,7 @@
     </div>
 
     <div class="container">
-      <h1>Transactions from Marc Mustermann</h1>
+      <h1>Transactions from #{userViewController.user.firstname} #{userViewController.user.lastname}</h1>
     
 	  <br />
 			<button class="btn btn-default" jsf:outcome="/transactions/deposit.xhtml">

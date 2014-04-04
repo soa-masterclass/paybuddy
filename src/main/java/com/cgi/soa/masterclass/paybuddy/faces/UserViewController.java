@@ -58,5 +58,11 @@ public class UserViewController {
 		
 	}
 	
+	public String MakeTransaction(){
+		
+		
+		return null;
+	}
+	
 
 }
